@@ -6,26 +6,26 @@
 }
 
 :root {
-    --primary-color: #4a6fdc;
-    --secondary-color: #f0f4ff;
-    --accent-color: #273b64;
-    --text-color: #333;
-    --light-text: #666;
-    --border-color: #ddd;
-    --success-color: #4CAF50;
-    --warning-color: #ff9800;
-    --danger-color: #f44336;
-    --shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    --lesson-color: #8bc34a;
-    --exam-color: #9c27b0;
-    --meeting-color: #00bcd4;
-    --materials-color: #ff5722;
+    --primary-color: #e67e22;
+    --secondary-color: #fff5e6;
+    --accent-color: #d35400;
+    --text-color: #543b24;
+    --light-text: #8B6B4C;
+    --border-color: #e0d2c3;
+    --success-color: #2ecc71;
+    --warning-color: #f39c12;
+    --danger-color: #e74c3c;
+    --shadow: 0 2px 10px rgba(84, 59, 36, 0.1);
+    --lesson-color: #27ae60;
+    --exam-color: #9b59b6;
+    --meeting-color: #3498db;
+    --materials-color: #d35400;
     --parents-color: #795548;
-    --other-color: #607d8b;
+    --other-color: #7f8c8d;
 }
 
 body {
-    background-color: #f5f7fa;
+    background-color: #fffaf3;
     color: var(--text-color);
     line-height: 1.6;
 }
@@ -168,7 +168,7 @@ header h2 {
 }
 
 .task-item:hover {
-    background-color: #f9f9f9;
+    background-color: #fff9f0;
 }
 
 .task-content {
@@ -218,7 +218,7 @@ header h2 {
 }
 
 .priority-medium {
-    background-color: #fff3e0;
+    background-color: #fff8e1;
     color: var(--warning-color);
 }
 
@@ -235,22 +235,22 @@ header h2 {
 }
 
 .type-שיעור {
-    background-color: rgba(139, 195, 74, 0.2);
+    background-color: rgba(39, 174, 96, 0.2);
     color: var(--lesson-color);
 }
 
 .type-בדיקת-מבחנים {
-    background-color: rgba(156, 39, 176, 0.2);
+    background-color: rgba(155, 89, 182, 0.2);
     color: var(--exam-color);
 }
 
 .type-ישיבת-צוות {
-    background-color: rgba(0, 188, 212, 0.2);
+    background-color: rgba(52, 152, 219, 0.2);
     color: var(--meeting-color);
 }
 
 .type-הכנת-חומרים {
-    background-color: rgba(255, 87, 34, 0.2);
+    background-color: rgba(211, 84, 0, 0.2);
     color: var(--materials-color);
 }
 
@@ -260,7 +260,7 @@ header h2 {
 }
 
 .type-אחר {
-    background-color: rgba(96, 125, 139, 0.2);
+    background-color: rgba(127, 140, 141, 0.2);
     color: var(--other-color);
 }
 
@@ -268,7 +268,7 @@ header h2 {
     font-weight: bold;
     padding: 2px 8px;
     border-radius: 10px;
-    background-color: #f0f4ff;
+    background-color: #fff5e6;
 }
 
 .task-time {
@@ -390,19 +390,19 @@ header h2 {
 }
 
 .day-task.type-שיעור {
-    background-color: rgba(139, 195, 74, 0.3);
+    background-color: rgba(39, 174, 96, 0.3);
 }
 
 .day-task.type-בדיקת-מבחנים {
-    background-color: rgba(156, 39, 176, 0.3);
+    background-color: rgba(155, 89, 182, 0.3);
 }
 
 .day-task.type-ישיבת-צוות {
-    background-color: rgba(0, 188, 212, 0.3);
+    background-color: rgba(52, 152, 219, 0.3);
 }
 
 .day-task.type-הכנת-חומרים {
-    background-color: rgba(255, 87, 34, 0.3);
+    background-color: rgba(211, 84, 0, 0.3);
 }
 
 .day-task.type-שיחה-עם-הורים {
@@ -410,7 +410,7 @@ header h2 {
 }
 
 .day-task.type-אחר {
-    background-color: rgba(96, 125, 139, 0.3);
+    background-color: rgba(127, 140, 141, 0.3);
 }
 
 .day-task.completed {
