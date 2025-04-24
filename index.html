@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taskie - ניהול משימות למורים</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Taskie למורים</h1>
+            <h2>מנהל המשימות המקצועי לאנשי חינוך</h2>
+        </header>
+
+        <div class="task-form">
+            <input type="text" id="taskInput" placeholder="הוסף משימה חדשה...">
+            <select id="prioritySelect">
+                <option value="נמוכה">נמוכה</option>
+                <option value="בינונית" selected>בינונית</option>
+                <option value="גבוהה">גבוהה</option>
+            </select>
+            <select id="taskTypeSelect">
+                <option value="שיעור">שיעור</option>
+                <option value="בדיקת מבחנים">בדיקת מבחנים</option>
+                <option value="ישיבת צוות">ישיבת צוות</option>
+                <option value="הכנת חומרים">הכנת חומרים</option>
+                <option value="שיחה עם הורים">שיחה עם הורים</option>
+                <option value="אחר">אחר</option>
+            </select>
+            <select id="classSelect">
+                <option value="">בחר כיתה (אופציונלי)</option>
+                <option value="א">א</option>
+                <option value="ב">ב</option>
+                <option value="ג">ג</option>
+                <option value="ד">ד</option>
+                <option value="ה">ה</option>
+                <option value="ו">ו</option>
+                <option value="ז">ז</option>
+                <option value="ח">ח</option>
+                <option value="ט">ט</option>
+                <option value="י">י</option>
+                <option value="יא">יא</option>
+                <option value="יב">יב</option>
+            </select>
+            <input type="date" id="dueDateInput">
+            <input type="time" id="taskTimeInput">
+            <button id="addTaskBtn">הוסף</button>
+        </div>
+
+        <div class="filters">
+            <div class="filter-group">
+                <label>סנן לפי סטטוס:</label>
+                <select id="statusFilter">
+                    <option value="all">הכל</option>
+                    <option value="active">פעיל</option>
+                    <option value="completed">הושלם</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label>סנן לפי עדיפות:</label>
+                <select id="priorityFilter">
+                    <option value="all">הכל</option>
+                    <option value="נמוכה">נמוכה</option>
+                    <option value="בינונית">בינונית</option>
+                    <option value="גבוהה">גבוהה</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label>סנן לפי סוג:</label>
+                <select id="typeFilter">
+                    <option value="all">הכל</option>
+                    <option value="שיעור">שיעור</option>
+                    <option value="בדיקת מבחנים">בדיקת מבחנים</option>
+                    <option value="ישיבת צוות">ישיבת צוות</option>
+                    <option value="הכנת חומרים">הכנת חומרים</option>
+                    <option value="שיחה עם הורים">שיחה עם הורים</option>
+                    <option value="אחר">אחר</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label>סנן לפי כיתה:</label>
+                <select id="classFilter">
+                    <option value="all">הכל</option>
+                    <option value="א">א</option>
+                    <option value="ב">ב</option>
+                    <option value="ג">ג</option>
+                    <option value="ד">ד</option>
+                    <option value="ה">ה</option>
+                    <option value="ו">ו</option>
+                    <option value="ז">ז</option>
+                    <option value="ח">ח</option>
+                    <option value="ט">ט</option>
+                    <option value="י">י</option>
+                    <option value="יא">יא</option>
+                    <option value="יב">יב</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label>מיין לפי:</label>
+                <select id="sortBy">
+                    <option value="date-added">תאריך הוספה</option>
+                    <option value="due-date">תאריך יעד</option>
+                    <option value="priority">עדיפות</option>
+                    <option value="task-type">סוג משימה</option>
+                    <option value="class">כיתה</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="view-toggle">
+            <button id="listViewBtn" class="view-btn active">תצוגת רשימה</button>
+            <button id="calendarViewBtn" class="view-btn">תצוגת לוח שנה</button>
+        </div>
+
+        <div id="listView" class="tasks-container">
+            <h3>המשימות שלך</h3>
+            <ul id="tasksList"></ul>
+        </div>
+
+        <div id="calendarView" class="calendar-container" style="display: none;">
+            <h3>לוח זמנים</h3>
+            <div class="calendar-header">
+                <button id="prevMonthBtn">◀</button>
+                <h4 id="currentMonth">חודש נוכחי</h4>
+                <button id="nextMonthBtn">▶</button>
+            </div>
+            <div class="weekdays">
+                <div>א</div>
+                <div>ב</div>
+                <div>ג</div>
+                <div>ד</div>
+                <div>ה</div>
+                <div>ו</div>
+                <div>ש</div>
+            </div>
+            <div id="calendarDays" class="calendar-days"></div>
+        </div>
+
+        <div class="task-stats">
+            <span id="totalTasks">סה"כ משימות: 0</span>
+            <span id="completedTasks">הושלמו: 0</span>
+            <span id="pendingTasks">בהמתנה: 0</span>
+            <button id="exportTasksBtn" title="ייצא משימות לקובץ Excel">📊</button>
+            <button id="printTasksBtn" title="הדפס משימות">🖨️</button>
+        </div>
+
+        <div id="reminderSettings" class="reminder-settings">
+            <h3>הגדרות תזכורות</h3>
+            <div class="reminder-option">
+                <input type="checkbox" id="enableReminders" checked>
+                <label for="enableReminders">הפעל תזכורות</label>
+            </div>
+            <div class="reminder-option">
+                <label for="reminderTime">שלח תזכורת לפני המשימה:</label>
+                <select id="reminderTime">
+                    <option value="15">15 דקות</option>
+                    <option value="30">30 דקות</option>
+                    <option value="60" selected>שעה</option>
+                    <option value="120">שעתיים</option>
+                    <option value="1440">יום</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html> 
